@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/kotlinx-serialization-presentation/static/css/main.3451aed5.chunk.css",
+    "main.js": "/kotlinx-serialization-presentation/static/js/main.ddc8eff8.chunk.js",
+    "main.js.map": "/kotlinx-serialization-presentation/static/js/main.ddc8eff8.chunk.js.map",
+    "runtime-main.js": "/kotlinx-serialization-presentation/static/js/runtime-main.7f54d9d1.js",
+    "runtime-main.js.map": "/kotlinx-serialization-presentation/static/js/runtime-main.7f54d9d1.js.map",
+    "static/js/2.871923ef.chunk.js": "/kotlinx-serialization-presentation/static/js/2.871923ef.chunk.js",
+    "static/js/2.871923ef.chunk.js.map": "/kotlinx-serialization-presentation/static/js/2.871923ef.chunk.js.map",
+    "index.html": "/kotlinx-serialization-presentation/index.html",
+    "precache-manifest.8febda2939b06f461747c4b22a52ae4c.js": "/kotlinx-serialization-presentation/precache-manifest.8febda2939b06f461747c4b22a52ae4c.js",
+    "service-worker.js": "/kotlinx-serialization-presentation/service-worker.js",
+    "static/css/main.3451aed5.chunk.css.map": "/kotlinx-serialization-presentation/static/css/main.3451aed5.chunk.css.map",
+    "static/js/2.871923ef.chunk.js.LICENSE.txt": "/kotlinx-serialization-presentation/static/js/2.871923ef.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7f54d9d1.js",
+    "static/js/2.871923ef.chunk.js",
+    "static/css/main.3451aed5.chunk.css",
+    "static/js/main.ddc8eff8.chunk.js"
+  ]
+}
