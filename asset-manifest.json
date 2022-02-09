@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/kotlinx-serialization-presentation/static/css/main.3451aed5.chunk.css",
-    "main.js": "/kotlinx-serialization-presentation/static/js/main.ddc8eff8.chunk.js",
-    "main.js.map": "/kotlinx-serialization-presentation/static/js/main.ddc8eff8.chunk.js.map",
+    "main.js": "/kotlinx-serialization-presentation/static/js/main.f8f42021.chunk.js",
+    "main.js.map": "/kotlinx-serialization-presentation/static/js/main.f8f42021.chunk.js.map",
     "runtime-main.js": "/kotlinx-serialization-presentation/static/js/runtime-main.7f54d9d1.js",
     "runtime-main.js.map": "/kotlinx-serialization-presentation/static/js/runtime-main.7f54d9d1.js.map",
-    "static/js/2.871923ef.chunk.js": "/kotlinx-serialization-presentation/static/js/2.871923ef.chunk.js",
-    "static/js/2.871923ef.chunk.js.map": "/kotlinx-serialization-presentation/static/js/2.871923ef.chunk.js.map",
+    "static/js/2.665349fb.chunk.js": "/kotlinx-serialization-presentation/static/js/2.665349fb.chunk.js",
+    "static/js/2.665349fb.chunk.js.map": "/kotlinx-serialization-presentation/static/js/2.665349fb.chunk.js.map",
     "index.html": "/kotlinx-serialization-presentation/index.html",
-    "precache-manifest.fa14d56fab06396dd81763f7c79d38cf.js": "/kotlinx-serialization-presentation/precache-manifest.fa14d56fab06396dd81763f7c79d38cf.js",
+    "precache-manifest.0b88b90700b5cb8ddc012780a1a88c78.js": "/kotlinx-serialization-presentation/precache-manifest.0b88b90700b5cb8ddc012780a1a88c78.js",
     "service-worker.js": "/kotlinx-serialization-presentation/service-worker.js",
     "static/css/main.3451aed5.chunk.css.map": "/kotlinx-serialization-presentation/static/css/main.3451aed5.chunk.css.map",
-    "static/js/2.871923ef.chunk.js.LICENSE.txt": "/kotlinx-serialization-presentation/static/js/2.871923ef.chunk.js.LICENSE.txt"
+    "static/js/2.665349fb.chunk.js.LICENSE.txt": "/kotlinx-serialization-presentation/static/js/2.665349fb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7f54d9d1.js",
-    "static/js/2.871923ef.chunk.js",
+    "static/js/2.665349fb.chunk.js",
     "static/css/main.3451aed5.chunk.css",
-    "static/js/main.ddc8eff8.chunk.js"
+    "static/js/main.f8f42021.chunk.js"
   ]
 }
