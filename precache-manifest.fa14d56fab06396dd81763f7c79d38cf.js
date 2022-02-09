@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6f89aacfca48e14ad6c6cb5d74555a12",
+    "revision": "efc254cf853562950cc6c597a40d0649",
     "url": "/kotlinx-serialization-presentation/index.html"
   },
   {
