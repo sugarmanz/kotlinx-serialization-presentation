@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2c12177fe8969d7364860218af1df938",
+    "revision": "18d018e10dfa446104f57361ea446012",
     "url": "/kotlinx-serialization-presentation/index.html"
   },
   {
-    "revision": "37604d552b237b7e9b59",
+    "revision": "6f2cdf8d90f87aeee5d2",
     "url": "/kotlinx-serialization-presentation/static/css/main.3451aed5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kotlinx-serialization-presentation/static/js/2.665349fb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "37604d552b237b7e9b59",
-    "url": "/kotlinx-serialization-presentation/static/js/main.f8f42021.chunk.js"
+    "revision": "6f2cdf8d90f87aeee5d2",
+    "url": "/kotlinx-serialization-presentation/static/js/main.8c8b9645.chunk.js"
   },
   {
     "revision": "04328526c5eed5684626",

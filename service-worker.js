@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/kotlinx-serialization-presentation/precache-manifest.0b88b90700b5cb8ddc012780a1a88c78.js"
+  "/kotlinx-serialization-presentation/precache-manifest.f53b8c5a23f3d0d240c07eca48c77af6.js"
 );
 
 self.addEventListener('message', (event) => {
