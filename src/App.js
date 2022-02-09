@@ -2,11 +2,6 @@ import React from "react";
 import { Deck, Slide } from "spectacle";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBook,
-  faShip,
-  faCheck
-} from "@fortawesome/free-solid-svg-icons";
 
 const PUBLIC_URL = "https://sugarmanz.github.io/kotlinx-serialization-presentation/"
 
@@ -112,7 +107,7 @@ const Description = ({ children }) => (
   <p className="text-lg text-gray-700 mb-6">{children}</p>
 )
 
-const Requirements = () => (
+export const Requirements = () => (
   <div className="mt-10 lg:mb-24 flex items-center justify-center flex-col h-full">
     <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
       What's already out there?
