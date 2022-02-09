@@ -1,0 +1,48 @@
+{
+  "name": "kotlinx-serialization-presentation",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://sugarmanz.github.io/kotlinx-serialization-presentation/",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "autoprefixer": "^9.7.4",
+    "postcss-import": "^12.0.1",
+    "react": "^16.13.1",
+    "react-app-rewire-postcss": "^3.0.2",
+    "react-app-rewired": "^2.1.5",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "spectacle": "^6.0.1",
+    "tailwindcss": "^1.2.0"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "release": "git config --global user.email 'zucker.jeremiah@gmail.com' && git config --global user.name 'Jeremiah Zucker' && push-dir --dir=build --branch=gh-pages --cleanup"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "push-dir": "^0.4.1"
+  }
+}
