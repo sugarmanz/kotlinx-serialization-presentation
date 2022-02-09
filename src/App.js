@@ -3,10 +3,7 @@ import { Deck, Slide } from "spectacle";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFireAlt,
   faBook,
-  faAtom,
-  faBacon,
   faShip,
   faCheck
 } from "@fortawesome/free-solid-svg-icons";
@@ -55,7 +52,7 @@ const Step = ({ number, label, image, links }) => (
   </div>
 );
 
-const Label = ({ children, color, size = "xl" }) => (
+export const Label = ({ children, color, size = "xl" }) => (
   <span
     className={`bg-${color}-600 text-white px-2 py-1 rounded font-semibold text-${size} align-middle`}
   >
@@ -63,7 +60,7 @@ const Label = ({ children, color, size = "xl" }) => (
   </span>
 );
 
-const FrequentlyAskedQuestion = ({ question, answer }) => (
+export const FrequentlyAskedQuestion = ({ question, answer }) => (
   <div className="mx-20 h-full flex flex-col justify-center">
     <h4 className="font-normal text-6xl mb-6 text-gray-700">{question}</h4>
     <p className="text-grey-800 text-3xl leading-relaxed">{answer}</p>
