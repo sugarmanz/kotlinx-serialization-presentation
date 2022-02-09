@@ -21,8 +21,8 @@ const Link = ({ href, ...props }) => (
   <a href={href}><span className={`text-${props.color ?? "blue"}-600 font-semibold underline`} {...props} /></a>
 );
 
-const Emphasize = ({ children, className }) => (
-  <span className={`text-purple-500 font-semibold ${className}`}>
+const Emphasize = ({ children, className, color = "purple" }) => (
+  <span className={`text-${color}-500 font-semibold ${className}`}>
     {children}
   </span>
 );
@@ -161,7 +161,7 @@ export const Requirements = () => (
 const Tenets = () => (
   <div className="mt-10 lg:mb-24 flex items-center justify-center flex-col h-full">
     <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
-      What does Kotlinx Serialization provide?
+      Why <Emphasize color="yellow">kotlinx.serialization</Emphasize>?
     </h2>
     <div className="h-full flex justify-around items-center flex-row text-gray-900">
       <div className="flex-1 lg:px-12">
