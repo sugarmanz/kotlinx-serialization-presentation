@@ -8,7 +8,7 @@ import {
   faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
-const PUBLIC_URL = "https://sugarmanz.github.io/kotlin-tooling-presentation/"
+const PUBLIC_URL = "https://sugarmanz.github.io/kotlinx-serialization-presentation/"
 
 const Feature = ({ title, description, icon }) => (
   <div className="mb-8 flex items-start last:mb-0">
@@ -22,8 +22,8 @@ const Feature = ({ title, description, icon }) => (
   </div>
 );
 
-const Link = props => (
-  <a {...props}><span className={`text-${props.color ?? "blue"}-600 font-semibold underline`} {...props} /></a>
+const Link = ({ href, ...props }) => (
+  <a href={href}><span className={`text-${props.color ?? "blue"}-600 font-semibold underline`} {...props} /></a>
 );
 
 const Emphasize = ({ children, className }) => (
@@ -32,16 +32,22 @@ const Emphasize = ({ children, className }) => (
   </span>
 );
 
-const Step = ({ number, label, image, links }) => (
+const Step = ({ number, label, image, links, children }) => (
   <div className="flex items-center justify-center flex-col mb-8 w-full h-full">
     <div className="pr-4 mb-6 text-5xl text-gray-900 mx-20 text-center">
       {label}
     </div>
 
+    {/* {description && <p className="text-2xl text-purple-200 font-light">
+      description
+    </p>} */}
+    {children}
+
     <img
       alt=""
       className="max-w-4xl border-2 border-gray-300 rounded-lg h-auto"
       src={`${PUBLIC_URL}/${image}`}
+      style={{ maxHeight: 500 }}
     />
 
     <br />
@@ -72,61 +78,68 @@ const Title = () => (
     className="bg-indigo-600 w-full h-full flex justify-center flex-col items-center text-center absolute"
     style={{ margin: -32 }}
   >
-    <h1 className="text-6xl font-bold text-white">Publishing a Kotlin Library</h1>
+    <h1 className="text-6xl font-bold text-white">Kotlin Serialization</h1>
 
     <p className="text-2xl text-purple-200 font-light">
-      We know the language is awesome, but what about{" "}
-      <span className="text-yellow-500 font-semibold">publication tooling?</span>
+      With all the existing JVM serialization frameworks, why{" "}
+      <Link href="https://github.com/kotlin/kotlinx.serialization" color="yellow">kotlinx.serialization</Link>?
     </p>
-    {/* TODO: Maybe reframe to how to publish quality software? */}
   </div>
 );
 
 const Setup = () => (
   <div className="mt-10 lg:mb-24 text-center flex items-center justify-center flex-col h-full">
     <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
-      Using a cool language shouldn't come at the expense of quality tools
+      Choosing a serialization framework can be tricky
     </h2>
 
 
     <p className="max-w-2xl text-2xl text-gray-700">
-      Thankfully, the <Emphasize>Kotlin</Emphasize> community considers tooling
-      to be an integral part of the language ecosystem. Let's take a look at
-      some of the tooling I discovered and was able to use for the{" "}
-      <Link href="https://intuit.github.io/hooks">Hooks</Link> project.
+      From my own experience, this usually ends up being an opinionated
+      decision, heavily favoring whatever solution the team is most experienced
+      with. Recently, I've had the opportunity to explore the idiomatic approach
+      to serialization in <Emphasize>Kotlin</Emphasize> and am excited to share
+      my learnings!
     </p>
   </div>
 );
 
+// const Competition = () => (
+//   <div></div>
+// )
+
+const Description = ({ children }) => (
+  <p className="text-lg text-gray-700 mb-6">{children}</p>
+)
+
 const Requirements = () => (
   <div className="mt-10 lg:mb-24 flex items-center justify-center flex-col h-full">
     <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
-      What are we aiming for?
+      What's already out there?
     </h2>
     <div className="h-full flex justify-around items-center flex-row text-gray-900">
       <div className="flex-1 lg:px-12">
         <Feature
-          title="Quality Documentation"
-          icon={faBook}
-          description="For libraries that are consumed and expose an API, usage docs and API
-            docs are important to ensure your code can be used without frustration!"
-        // Dokka for API docs
-        // Orchid for usage docs
-        // Testing documentation knit
+          title="Gson"
+          // icon={faBook}
+          description="Popular, but JSON only. Unofficially deprecated as it doesn't handle `null` values gracefully."
         />
 
         <Feature
-          title="Stable Releases"
-          icon={faShip}
-          description="Protect your consumers from errant releases and ensure releases follow
-            strict versioning patterns."
-        // Auto
-        // binary compatibility
+          title="Jackson"
+          // icon={faShip}
+          description=""
+        />
+
+        <Feature
+          title="Moshi"
+          // icon={faShip}
+          description="JSON only?"
         />
 
         <Feature
           title="Maintainability & Open Source Readiness"
-          icon={faCheck}
+          // icon={faCheck}
           description="Set the project up for success by defining & enforcing standards to
             follow when making a contribution. This includes formatting, testing, documentation..."
         // ktlint
@@ -141,6 +154,51 @@ const Requirements = () => (
         <img
           src={`${PUBLIC_URL}/documentation.png`}
           alt="documentation example"
+          className="border border-grey-600 rounded-lg p-4 shadow-md"
+          style={{ maxHeight: 500 }}
+        />
+      </div>
+    </div>
+  </div>
+);
+
+
+const Tenets = () => (
+  <div className="mt-10 lg:mb-24 flex items-center justify-center flex-col h-full">
+    <h2 className="text-purple-900 text-4xl mb-12 mx-32 font-semibold">
+      What does Kotlinx Serialization provide?
+    </h2>
+    <div className="h-full flex justify-around items-center flex-row text-gray-900">
+      <div className="flex-1 lg:px-12">
+        <Feature
+          title="Idiomatic Kotlin Serialization"
+          // icon={faBook}
+          description="Fully supports and enforces the Kotlin type system, making sure only valid objects can be deserialized"
+        />
+
+        <Feature
+          title="Multiplatform"
+          // icon={faShip}
+          description="Share data models and serializers between backend, frontend, and anywhere inbetween"
+        />
+
+        <Feature
+          title="Multiformat"
+          // icon={faCheck}
+          description="Official JSON, HOCON, ProtoBuf, CBOR, and Properties formats. Many community-driven formats, i.e. YAML, XML, SharedPreferences, even Minecraft NBT"
+        />
+
+        <Feature
+          title="Compiler Plugin"
+          // icon={faShip}
+          description="Reduce overhead, while still providing strictly typed, accurate serializers"
+        />
+      </div>
+
+      <div className="flex-1 px-12 mb-20 lg:mb-0">
+        <img
+          src={`${PUBLIC_URL}/tenets.png`}
+          alt="basic serialization"
           className="border border-grey-600 rounded-lg p-4 shadow-md"
           style={{ maxHeight: 500 }}
         />
@@ -172,30 +230,37 @@ const Questions = () => (
     <h1 className="text-6xl font-bold text-white">Questions?</h1>
 
     <p className="text-2xl text-purple-200 font-light">
-      Slides are posted to <Link href="https://sugarmanz.github.io/kotlin-tooling-presentation" color="yellow">https://sugarmanz.github.io/kotlin-tooling-presentation</Link>
+      Slides are posted to <Link href="https://sugarmanz.github.io/kotlinx-serialization-presentation" color="yellow">https://sugarmanz.github.io/kotlinx-serialization-presentation</Link>
     </p>
   </div>
 );
 
 function App() {
   // title
-  // setup
-  // requirements
-  // 1. documentation
-  // 1a. dokka - api docs
-  // 1b. orchid - usage docs (markdown)
-  // 1c. knit - testing your usage docs
-  // 2. publishing
-  // 2a. auto (not really kotlin, but...)
-  // 2b. binary compatibility
-  // 2c. deprecation
-  // 3. OSS
-  // 3a. ktlint
-  // 3b. detekt
-  // 3c. fossa
-  // maybe brief sonatype preview?
-  // 4. intuit OSS process?
-  // 5. questions? 
+  // setup -- problem statement
+  // 1. potential solutions
+  // - Gson
+  // - Jackson
+  // - Moshi
+  // - Kotlinx Serialization
+  // 2. Kotlinx Serialization Tenets
+  //    - Explicit over implicit
+  //    - Format agnostic serializers
+  //    - Compiler plugin
+  //    - Kotlin Multiplatform -- share data models
+  //    - Integrtaions?
+  // 3. Basic Serialization
+  // 4. Built-ins
+  // 5. Serializers 
+  //    a. plugin generated
+  //    b. custom
+  // 6. Polymorphism
+  // 7. Formats
+  //    a. Json
+  //    b. others + custom
+  // 8. Questions
+  //    a. Links
+  // 9. Demo?
   return (
     <Deck>
       <Slide>
@@ -206,105 +271,65 @@ function App() {
         <Setup />
       </Slide>
 
-      <Slide backgroundColor="white">
+      {/* <Slide backgroundColor="white">
         <Requirements />
+      </Slide> */}
+      <Slide backgroundColor="white">
+        <Tenets />
       </Slide>
 
       <Slide>
-        <Topic name="Documentation" subtopics={["API Docs", "Usage Docs", "Doc Verification"]} />
+        <Topic name="Kotlinx Serialization" subtopics={["Basics", "Custom Serializers", "Formats"]} />
       </Slide>
 
+      {/* 
+        1. Distinction, even tho most use cases will only be concerned with serialization
+        2. Backwards, decoding -> deserialization
+        3. No substitute for docs
+      */}
       <Slide backgroundColor="white">
-        <Step label="API Docs: Dokka" image="dokka.png" links={[
-          <Link href="https://kotlinlang.org/docs/kotlin-doc.html">KDoc Reference</Link>,
-          <Link href="https://intuit.github.io/hooks/kotlindoc/hooks/com/intuit/hooks/">Hooks API Docs</Link>,
+        <Step label="Basics" image="pipeline.png" links={[
+          <Link href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md">Serialization guide</Link>,
+        ]}>
+          <Description>
+            The distinction between serialization and encoding is important
+          </Description>
+        </Step>
+      </Slide>
+
+      {/*
+        1. Most basic built in classes have serializers
+        2. Any class denoted with the Serializable annotation will have a serializer generated
+        3. These serializers are registered on the companion object
+        4. However, formats are able to infer serializer based on expected type
+        5. Generic serializers
+      */}
+      <Slide backgroundColor="white">
+        <Step label="Serializers" image="tenets.png" links={[
+          <Link href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md#builtin-classes">Builtin serializers</Link>,
+          <Link href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#plugin-generated-serializer">Plugin generated serializers</Link>,
+          <Link href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#plugin-generated-generic-serializer">Generic serializers</Link>,
         ]} />
       </Slide>
 
+      {/* 
+        1. More involved for sure
+        2. Powerful way to be able to represent data in different formats
+        3. Well-written custom serializers are still format agnostic
+        4. Throwable serializer
+      */}
       <Slide backgroundColor="white">
-        <Step label="Usage Docs: Orchid" image="orchid.png" links={[
-          <Link href="https://orchid.run/">Orchid Reference</Link>,
-          <Link href="https://intuit.github.io/hooks/">Hooks Docs Site</Link>,
-        ]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="Docs Verification: Kotlinx Knit" image="knit.png" links={[
-          <Link href="https://github.com/Kotlin/kotlinx-knit">Kotlinx Knit Github</Link>,
-          <Link href="https://github.com/intuit/hooks/tree/master/docs/src/test/kotlin/example/example-synchook-01.kt">example-synchook-01.kt</Link>,
-        ]} />
+        <Step label="Custom serializers" image="custom-serializer.png" links={[
+          <Link href="https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md#custom-serializers">Custom serializers</Link>
+        ]}><Description>Custom serializers require a bit more knowledge of encoding procedure</Description></Step>
       </Slide>
 
       <Slide>
-        <Topic name="Releases" subtopics={["Semantic Versioning w/ Auto", "Binary Compatibility", "Deprecation"]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="Semantic Versioning w/ Auto" image="auto.png" links={[
-          <Link href="https://github.com/intuit/auto">Auto Github</Link>,
-          <Link href="https://intuit.github.io/hooks/changelog/">Hooks Changelog</Link>,
-        ]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="Binary Compatibility" image="api.png" links={[
-          <Link href="https://github.com/Kotlin/binary-compatibility-validator">Binary Compatibility Validator Github</Link>,
-          <Link href="https://github.com/intuit/hooks/blob/main/hooks/api/hooks.api">Hooks API</Link>,
-        ]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="Deprecation" image="deprecation-replace.png" links={[
-          <Link href="https://todd.ginsberg.com/post/kotlin/deprecation/">"Enhanced Deprecation in Kotlin"</Link>,
-        ]} />
+        <Topic name="Polymorphic Serialization" />
       </Slide>
 
       <Slide>
-        <Topic name="Maintainability" subtopics={["Linting", "Static Analysis", "Contributions"]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="ktlint" image="ktlint.png" links={[
-          <Link href="https://github.com/pinterest/ktlint">ktlint Github</Link>,
-        ]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="detekt" image="detekt.png" links={[
-          <Link href="https://github.com/detekt/detekt">detekt Github</Link>,
-        ]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="License Check: Fossa" image="fossa.png" links={[
-          <Link href="https://fossa.com/">Fossa</Link>,
-          <Link href="https://app.fossa.com/projects/custom%2B23410%2Fgit%40github.com%3Aintuit%2Fhooks/refs/branch/master/a1a5365b7e6c686b7026d48ff63c30a4f80b30ca/preview">Hooks Fossa Report</Link>
-        ]} />
-      </Slide>
-
-      <Slide>
-        <Topic name="Bonus" subtopics={["Simple Pipeline", "Minimal Configuration", "Intuit OSS Guidelines"]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="Simple Pipeline" image="pipeline.png" links={[
-          <Link href="https://github.com/intuit/hooks/blob/main/.circleci/config.yml">Hooks Circle CI Pipeline</Link>,
-          <Link href="https://github.com/intuit/hooks/blob/main/build.gradle.kts#L62">Hooks Gradle Publish Task</Link>,
-        ]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="Sonatype Configuration" image="sonatype.png" links={[
-          <Link href="https://github.com/gradle-nexus/publish-plugin">Gradle Nexus Publish Plugin Github</Link>,
-          <Link href="https://github.com/intuit/hooks/blob/main/build.gradle.kts#L48">Sonatype Plugin Configuration</Link>,
-          <Link href="https://issues.sonatype.org/browse/OSSRH-65077">Sonatype JIRA Ticket</Link>,
-        ]} />
-      </Slide>
-
-      <Slide backgroundColor="white">
-        <Step label="Intuit OSS Process" image="oss.png" links={[
-          <Link href="https://github.intuit.com/pages/open-source/OSSContributionProcess/">Intuit OSS Contribution Process</Link>,
-        ]} />
+        <Topic name="Bonus" subtopics={["package.json", "JS runtime ORM",]} />
       </Slide>
 
       <Slide>
